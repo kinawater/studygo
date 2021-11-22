@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"math/rand"
-	"strconv"
 	"strings"
 	"time"
 )
@@ -11,12 +10,38 @@ import (
 func main(){
 
 	//mars()
-	//randNum()
+	guessNum(58)
 	//var checkStatus = checkStr("123","4")
 	//fmt.Println("result is ",checkStatus)
-	var point = 1;
-	var result = testSwitch(strconv.Itoa(point))
-	fmt.Println("result is " , result)
+	//var point = 1;
+	//var result = testSwitch(strconv.Itoa(point))
+	//fmt.Println("result is " , result)
+}
+/**
+猜数字
+ */
+func guessNum(insertNum int)  {
+	temp := 0
+	n := 0
+	for {
+		temp = randNum(int64(n))
+		n++
+		if (temp != insertNum) {
+			println("Not equal,Now is ",temp)
+		} else {
+			println("Equal! Now is",temp)
+			break
+		}
+	}
+}
+/**
+任意数字
+*/
+func randNum(seedOther int64) int{
+	var timeStamp = time.Now().Unix()
+	r := rand.New(rand.NewSource(timeStamp+seedOther))
+	num := r.Intn(100)
+	return num
 }
 
 func testSwitch(checkPoint string) bool{
@@ -35,20 +60,7 @@ func testSwitch(checkPoint string) bool{
 func checkStr(orginString string,needle string) bool {
 	return strings.Contains(orginString,needle)
 }
-/**
-	任意数字
- */
-func randNum(){
-	var timeStamp = time.Now().Unix()
-	fmt.Println(time.Now().Format("2006-01-02 15:04:05"))
-	fmt.Println(timeStamp)
-	var num = rand.Intn(10)
-	fmt.Println(num)
-	fmt.Println(timeStamp)
-	num = rand.Intn(10)
-	fmt.Println(num)
 
-}
 
 /*
 	去火星
