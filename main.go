@@ -9,13 +9,6 @@ import (
 
 func main(){
 
-	//mars()
-	guessNum(58)
-	//var checkStatus = checkStr("123","4")
-	//fmt.Println("result is ",checkStatus)
-	//var point = 1;
-	//var result = testSwitch(strconv.Itoa(point))
-	//fmt.Println("result is " , result)
 }
 /**
 猜数字
