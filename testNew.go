@@ -1,30 +1,11 @@
 package main
 
-import (
-	"bytes"
-	"fmt"
-)
-
-var CRLF = "\r\n"
+import "fmt"
 
 func main() {
-	a := StatusReply{Status: "1"}
-	b := new(StatusReply)
-	b.Status = "1"
-	c := *b
-	c.Status = "2"
-	fmt.Println(a)
-	fmt.Println(b)
-	fmt.Println(*b)
-	fmt.Println(c)
-}
+	m := make(map[string]string)
+	m["1"] = "1"
+	m["2"] = "2"
 
-type StatusReply struct {
-	Status string
-}
-
-func (r *StatusReply) ToBytes() []byte {
-	var buf bytes.Buffer
-	buf.WriteString("+" + r.Status + CRLF)
-	return buf.Bytes()
+	fmt.Println(m["1"])
 }
